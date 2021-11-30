@@ -240,6 +240,15 @@ function dragFun() {
 
         })
 
+        draggable.addEventListener("touchstart", function draggingClassAdd() {
+            draggable.classList.add("dragging");
+        })
+
+        draggable.addEventListener("touchend", function draggingClassRemove() {
+            draggable.classList.remove("dragging");
+
+
+        })
 
     })
 
