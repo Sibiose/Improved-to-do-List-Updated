@@ -19,6 +19,7 @@ let toggleImage = document.querySelector(".toggle-image");
 let filter = document.querySelector(".filter");
 let footerP = document.querySelector(".footer-p");
 let currentTheme = "dark"; //default for current theme is dark;
+let draggables = [...document.querySelectorAll(".draggable")];
 
 function clearInput() {
     taskInput.value = "";
@@ -38,6 +39,17 @@ function createTaskItem(event) {
         let newTextNode = document.createTextNode(taskInput.value);
 
 
+
+
+        //-----DRAG AND DROP PART-----------
+
+        newLi.classList.add("draggable");
+        newLi.setAttribute("draggable", true);
+
+
+
+
+        //----------------------------------
 
         let newCheckBtn = document.createElement("button");
         newCheckBtn.classList.add("check");
@@ -97,9 +109,13 @@ taskInput.addEventListener("keypress", createTaskItem);
 function updateList() {
     taskItem = [...document.querySelectorAll(".task-item")];
     pseudoCheck = [...document.querySelectorAll(".pseudo-check")];
+    draggables = [...document.querySelectorAll(".draggable")];
     taskItemCompleted = document.querySelectorAll(".completed-item")
     taskItemActive = taskItem.filter(taskItem => !taskItem.classList.contains("completed-item"))
     taskCountUpdate();
+
+
+    dragFun();
 }
 
 
@@ -203,3 +219,54 @@ toggleBtn.addEventListener("click", function toggleFun() {
 
 })
 
+
+
+//---------------------------DRAG AND DROP -------------------------------------
+
+
+// Web DEV SIMPLIFIED Tutorial on DRAG AND DROP....
+
+
+
+function dragFun() {
+    draggables.forEach(draggable => {
+        draggable.addEventListener("dragstart", function draggingClassAdd() {
+            draggable.classList.add("dragging");
+        })
+
+        draggable.addEventListener("dragend", function draggingClassRemove() {
+            draggable.classList.remove("dragging");
+
+
+        })
+
+
+    })
+
+    taskList.addEventListener("dragover", e => {
+        e.preventDefault()
+        const afterElement = dragAfterElement(taskList, e.clientY)
+        const draggable = document.querySelector(".dragging");
+        taskList.appendChild(draggable);
+        if (afterElement == null) {
+            taskList.appendChild(draggable)
+        } else {
+            taskList.insertBefore(draggable, afterElement);
+        }
+    })
+}
+
+
+function dragAfterElement(taskList, y) {
+    const draggableElements = [...taskList.querySelectorAll(".draggable:not(.dragging)")];
+
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect()
+        const offset = y - box.top - box.height / 2
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child }
+        } else {
+            return closest
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
