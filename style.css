@@ -115,6 +115,8 @@ header{
 .check{
     border-radius:100%;
     min-width:1.5rem;
+    max-width:1.5rem;
+    max-height:1.5rem;
     min-height:1.5rem;
     background:linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
     position:relative;
