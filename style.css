@@ -105,13 +105,9 @@ header{
     justify-content: space-between;
 }
 
-footer{
-    position:absolute;
-    bottom:0;
-    text-align: center;
-    left:50%;
-    transform:translateX(-50%);
-    color:white;
+.footer-p{
+    order:4;
+    align-self: center;
 }
 
 /* -----------------------------------------BUTTONS------------------------------------- */
@@ -205,11 +201,10 @@ background-size: cover;
     background-color:hsl(0, 0%, 98%);
 }
 
-.light-footer{
+
+.light-footer-p{
     color:hsl(235, 24%, 19%);
 }
-
-
 
 
 
@@ -263,6 +258,11 @@ background-size: cover;
     color: hsl(220, 98%, 61%);
 }
 
+.footer-p{
+    color:hsl(236, 33%, 92%);
+}
+
+
 @media screen and (max-width: 570px){
 
     .control-menu{
@@ -281,4 +281,11 @@ background-size: cover;
     }
 
 
+}
+
+.light-filter{
+    background-color:hsl(0, 0%, 98%);
+}
+.light-footer-p{
+    color:hsl(235, 24%, 19%);
 }

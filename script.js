@@ -1,5 +1,4 @@
 const body = document.querySelector("body");
-const footer = document.querySelector("footer");
 const toggleBtn = document.querySelector(".toggle");
 const taskList = document.querySelector(".task-list");
 let taskItem = [...document.querySelectorAll(".task-item")];
@@ -17,7 +16,8 @@ let pseudoCheck = [...document.querySelectorAll(".pseudo-check")];
 let controlMenu = document.querySelector(".control-menu");
 const header = document.querySelector("header");
 let toggleImage = document.querySelector(".toggle-image");
-
+let filter = document.querySelector(".filter");
+let footerP = document.querySelector(".footer-p");
 let currentTheme = "dark"; //default for current theme is dark;
 
 function clearInput() {
@@ -178,8 +178,8 @@ toggleBtn.addEventListener("click", function toggleFun() {
     completedFilter.classList.toggle("light-filter-p");
     clearBtn.classList.toggle("light-filter-p");
     taskInput.classList.toggle("light-input");
-    footer.classList.toggle("light-footer");
-
+    filter.classList.toggle("light-filter");
+    footerP.classList.toggle("light-footer-p")
 
     for (let i = 0; i < pseudoCheck.length; i++) {
         pseudoCheck[i].classList.toggle("light-pseudo-check");
@@ -203,5 +203,3 @@ toggleBtn.addEventListener("click", function toggleFun() {
 
 
 })
-
-
