@@ -73,7 +73,6 @@ function createTaskItem(event) {
         newLi.appendChild(newDeleteBtn);
         taskList.appendChild(newLi);
 
-
         newCheckBtn.addEventListener("click", function completeItem() {
             newLi.classList.toggle("completed-item");
             newCheckImage.classList.toggle("hide");
@@ -203,3 +202,4 @@ toggleBtn.addEventListener("click", function toggleFun() {
 
 
 })
+

@@ -48,6 +48,7 @@ header{
     caret-color: hsl(220, 98%, 61%);
     
     
+    
    
 }
 .task-list{
@@ -60,6 +61,7 @@ header{
     display:flex;
     flex-direction: column;
     padding:0;
+    
 
 
 }
@@ -74,8 +76,6 @@ header{
     border-bottom:2px solid hsl(237, 14%, 26%);
     display:flex;
     align-items:center;
-
-    
 }
 
 .clear:hover{
@@ -114,8 +114,8 @@ header{
 
 .check{
     border-radius:100%;
-    width:1.5rem;
-    height:1.5rem;
+    min-width:1.5rem;
+    min-height:1.5rem;
     background:linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
     position:relative;
     margin-right:1rem;
@@ -130,6 +130,7 @@ header{
     height:1.3rem;
     background:hsl(235, 24%, 19%);
     border-radius: 100%;
+    
 }
 
 
@@ -139,6 +140,7 @@ header{
     left:50%;
     transform: translateX(-50%) translateY(-50%);
     z-index: 3;
+    
 }
 .check:hover{
     cursor:pointer;
@@ -289,3 +291,5 @@ background-size: cover;
 .light-footer-p{
     color:hsl(235, 24%, 19%);
 }
+
+
